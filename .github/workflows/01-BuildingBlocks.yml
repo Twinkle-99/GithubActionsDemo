@@ -1,10 +1,11 @@
 name: 01 - Building Blocks
 
-# Triggers for the workflow
+# # Triggers for the workflow
+# on:
+#   push:                 # Runs when code is pushed
+#   workflow_dispatch:    # Allows manual run in GitHub Actions UI
 on:
-  push:                 # Runs when code is pushed
-  workflow_dispatch:    # Allows manual run in GitHub Actions UI
-
+    workflow_dispatch:
 jobs:
   echo-hello:
     runs-on: ubuntu-latest
@@ -12,16 +13,29 @@ jobs:
       - name: Say hello
         run: 'echo "Hello, World!"'   # Simple echo command
 
+  # echo-goodbye:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Failed step
+  #       # 'exit: 1' was invalid YAML and invalid in GitHub Actions.
+  #       # It must be inside the run script.
+  #       run: |
+  #         echo "I will fail"
+  #         exit 1   # This makes the step fail
+
+  #     - name: Say goodbye
+  #       # Removed extra text that caused the syntax error on line 21
+  #       run: echo "Goodbye!"
+  
   echo-goodbye:
     runs-on: ubuntu-latest
     steps:
-      - name: Failed step
-        # 'exit: 1' was invalid YAML and invalid in GitHub Actions.
-        # It must be inside the run script.
-        run: |
-          echo "I will fail"
-          exit 1   # This makes the step fail
+     - name: Failed step
+       run: |
+        echo "I will now succeed"
+        exit 0   # This makes the step fail
 
-      - name: Say goodbye
-        # Removed extra text that caused the syntax error on line 21
-        run: echo "Goodbye!"
+     - name: Say goodbye
+       run: echo "Goodbye!"
+      
+      
