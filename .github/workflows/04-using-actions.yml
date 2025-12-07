@@ -1,13 +1,14 @@
 name: 04-using-actions
+
 on:
   push:
+
 jobs:
   Checkout_Code:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/Checkout@v4
-      - name: Printing floder
-        run: ls-R
-  
-  
+        uses: actions/checkout@v4
+
+      - name: Printing folder
+        run: ls -R
