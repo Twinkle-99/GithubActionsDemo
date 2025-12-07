@@ -33,5 +33,5 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: 04-using-actions/react
+        working-directory: 04-using-actions/reactapp
 
