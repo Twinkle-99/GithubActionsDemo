@@ -1,0 +1,12 @@
+name: 05-1-Event Filters and Activity filters
+on:
+  pull_request:
+        types: [opened, synchronized]
+        branches: [main]
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Running whenver a PR is opened/ synchronized and base branch".
+  
